@@ -37,7 +37,7 @@ def deprecated(msg: str = None, stack_level: int = 2) -> callable:
             warnings.warn(
                 msg or "Function %s is deprecated." % fn.__name__,
                 category=DeprecationWarning,
-                stacklevel=stack_level
+                stacklevel=stack_level,
             )
             return fn(*args, **kwargs)
 
