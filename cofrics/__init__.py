@@ -1,7 +1,4 @@
-from .perf_attrib import (
-    perf_attrib,
-    compute_exposures,
-)
+from .perf_attrib import compute_exposures, perf_attrib
 from .stats import (
     aggregate_returns,
     alpha,
@@ -12,11 +9,9 @@ from .stats import (
     annual_volatility,
     beta,
     beta_aligned,
-    cagr,
     beta_fragility_heuristic,
     beta_fragility_heuristic_aligned,
-    gpd_risk_estimates,
-    gpd_risk_estimates_aligned,
+    cagr,
     calmar_ratio,
     capture,
     conditional_value_at_risk,
@@ -26,6 +21,8 @@ from .stats import (
     down_capture,
     downside_risk,
     excess_sharpe,
+    gpd_risk_estimates,
+    gpd_risk_estimates_aligned,
     max_drawdown,
     omega_ratio,
     roll_alpha,

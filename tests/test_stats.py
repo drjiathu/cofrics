@@ -1,21 +1,21 @@
-from __future__ import division, annotations
+from __future__ import annotations, division
 
 from copy import copy
-from operator import attrgetter
 from functools import wraps
+from operator import attrgetter
 
 import numpy as np
-from numpy.testing import assert_almost_equal, assert_allclose
 import pandas as pd
+import pytest
+from numpy.testing import assert_allclose, assert_almost_equal
 from pandas.core.generic import NDFrame
 from pandas.testing import assert_index_equal
 from scipy import stats
-import pytest
 
-from cofrics.periods import DAILY, WEEKLY, MONTHLY, QUARTERLY, YEARLY
-from cofrics.stats import cum_returns_final, capture, max_drawdown, alpha_aligned
-from cofrics.utils import roll, up, down
 import cofrics
+from cofrics.periods import DAILY, MONTHLY, QUARTERLY, WEEKLY, YEARLY
+from cofrics.stats import alpha_aligned, capture, cum_returns_final, max_drawdown
+from cofrics.utils import down, roll, up
 
 DECIMAL_PLACES = 8
 
@@ -590,7 +590,8 @@ class TestStats(TestBaseCase):
         else:
             assert_almost_equal(downside_risk, expected, DECIMAL_PLACES)
 
-    # As a higher percentage of returns are below the required return, downside risk increases.
+    # As a higher percentage of returns are below the required return,
+    # downside risk increases.
     @pytest.mark.parametrize(
         "noise, flat_line", [(noise, flat_line_0), (noise_uniform, flat_line_0)]
     )
@@ -1878,7 +1879,6 @@ class ConvertPandasCofricsProxy(ReturnTypeCofricsProxy):
 
     def __getattr__(self, item):
         if self._pandas_only:
-            # raise unittest.SkipTest("cofrics.%s expects pandas-only inputs that have dt indexes/labels" % item)
             raise pytest.skip(
                 f"cofrics.{item} expects pandas-only inputs that have dt indexes/labels"
             )
