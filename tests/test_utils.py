@@ -2,14 +2,12 @@ from __future__ import division
 
 import numpy as np
 import pandas as pd
-from pandas.testing import assert_frame_equal, assert_series_equal
 import pytest
+from pandas.testing import assert_frame_equal, assert_series_equal
 
-from cofrics.utils import (
-    get_clean_factor_and_forward_returns,
-    compute_forward_returns,
-    quantize_factor,
-)
+from cofrics.utils import (compute_forward_returns,
+                           get_clean_factor_and_forward_returns,
+                           quantize_factor)
 
 
 class TestUtils:

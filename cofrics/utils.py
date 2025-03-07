@@ -1,16 +1,16 @@
 from __future__ import annotations
 
+import re
+import warnings
 # from datetime import datetime
 from functools import wraps
-import re
-from typing import Sequence, Iterable
-import warnings
+from typing import Iterable, Sequence
 
 import numpy as np
 import pandas as pd
-from numpy.lib.stride_tricks import as_strided
-from pandas.tseries.offsets import CDay, Day, BDay
 from IPython.display import display
+from numpy.lib.stride_tricks import as_strided
+from pandas.tseries.offsets import BDay, CDay, Day
 from scipy.stats import mode
 
 # from .deprecate import deprecated
