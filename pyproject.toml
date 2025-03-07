@@ -30,7 +30,3 @@ isort = "^6.0.1"
 
 [tool.isort]
 profile = "black"
-
-[tool.flake8]
-max-line-length = 88
-ignore = "E203,W503"
