@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 import warnings
+
 # from datetime import datetime
 from functools import wraps
 from typing import Iterable, Sequence
@@ -1355,7 +1356,8 @@ def rolling_window(array: np.ndarray, length: int, mutable: bool = False) -> np.
         raise IndexError("Can't restride a scalar.")
     elif orig_shape[0] < length:
         raise IndexError(
-            f"Can't restride array of shape {orig_shape} with a window length of {length}"
+            f"Can't restride array of shape {orig_shape} with a window length of "
+            f"{length}"
         )
 
     num_windows = orig_shape[0] - length + 1

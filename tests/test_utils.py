@@ -5,9 +5,11 @@ import pandas as pd
 import pytest
 from pandas.testing import assert_frame_equal, assert_series_equal
 
-from cofrics.utils import (compute_forward_returns,
-                           get_clean_factor_and_forward_returns,
-                           quantize_factor)
+from cofrics.utils import (
+    compute_forward_returns,
+    get_clean_factor_and_forward_returns,
+    quantize_factor,
+)
 
 
 class TestUtils:

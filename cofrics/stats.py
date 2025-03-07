@@ -8,8 +8,15 @@ import numpy as np
 import pandas as pd
 from scipy import optimize, stats
 
-from .periods import (ANNUALIZATION_FACTORS, APPROX_BDAYS_PER_YEAR, DAILY,
-                      MONTHLY, QUARTERLY, WEEKLY, YEARLY)
+from .periods import (
+    ANNUALIZATION_FACTORS,
+    APPROX_BDAYS_PER_YEAR,
+    DAILY,
+    MONTHLY,
+    QUARTERLY,
+    WEEKLY,
+    YEARLY,
+)
 from .utils import down, nanmean, nanmin, nanstd, roll, rolling_window, up
 
 DEFAULT_THRESHOLD = 0.2
@@ -1727,11 +1734,9 @@ def beta_fragility_heuristic_aligned(
         ) / factor_returns_range
 
     # Calculate fragility heuristic
-    heuristic = (
-        start_returns_weight * start_returns
-        + end_returns_weight * end_returns
-        - mid_returns
-    )
+    weighted_start_returns = start_returns_weight * start_returns
+    weighted_end_returns = end_returns_weight * end_returns
+    heuristic = weighted_start_returns + weighted_end_returns - mid_returns
 
     return heuristic
 
